@@ -45,6 +45,14 @@
         <input name="key3" id="key3-1" data-type="int" value="1" checked="checked" type="radio">
         <label for="key3-1">On</label>
 </fieldset>
+
+<fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+    <legend>Date Format</legend>
+        <input name="key4" id="key4-0" data-type="int" value="0" type="radio">
+        <label for="key4-0">dd/mm/yyyy</label>
+        <input name="key4" id="key4-1" data-type="int" value="1" checked="checked" type="radio">
+        <label for="key4-1">mm/dd/yyyy</label>
+</fieldset>
 </div>
 
 <div data-role="collapsible">
@@ -86,6 +94,7 @@ If you don't want a custom location leave the field blank.
           'weatherFormat':     Number( $("input[name=key1]:checked").val() ),
           'animations':     Number( $("input[name=key2]:checked").val() ),
           'autoOpen':     Number( $("input[name=key3]:checked").val() ),
+          'dateFormat':     Number( $("input[name=key4]:checked").val() ),
           //Strings
           'customLoc': $("input[name=key13]").val(),
         }
@@ -105,6 +114,8 @@ If you don't want a custom location leave the field blank.
           $("input[name=key2]").checkboxradio('refresh');
           $("input[name=key3][id=key3-"+ls_pto["autoOpen"]+"]").prop('checked',true);
           $("input[name=key3]").checkboxradio('refresh');
+          $("input[name=key4][id=key4-"+ls_pto["dateFormat"]+"]").prop('checked',true);
+          $("input[name=key4]").checkboxradio('refresh');
           
           //Strings
           $("input[name=key13]").val(ls_pto["customLoc"]);
