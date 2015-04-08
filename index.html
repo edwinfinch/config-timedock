@@ -38,6 +38,15 @@
 </fieldset>
 
 <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+    <legend>Animations</legend>
+    	<i>This will only apply if animations are on. If reduced, you'll see less animations on boot and charging.</i>
+        <input name="key5" id="key5-0" data-type="int" value="0" checked="checked" type="radio">
+        <label for="key5-0">No</label>
+        <input name="key5" id="key5-1" data-type="int" value="1" type="radio">
+        <label for="key5-1">Yes</label>
+</fieldset>
+
+<fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
     <legend>Autoopen</legend>
     <i>Auto-open TimeDock watchface on the event of charger being plugged.</i>
         <input name="key3" id="key3-0" data-type="int" value="0" type="radio">
@@ -95,6 +104,7 @@ If you don't want a custom location leave the field blank.
           'animations':     Number( $("input[name=key2]:checked").val() ),
           'autoOpen':     Number( $("input[name=key3]:checked").val() ),
           'dateFormat':     Number( $("input[name=key4]:checked").val() ),
+          'reduceAnimations': Number ( $("input[name=key5]:checked").val() )
           //Strings
           'customLoc': $("input[name=key13]").val(),
         }
@@ -116,6 +126,8 @@ If you don't want a custom location leave the field blank.
           $("input[name=key3]").checkboxradio('refresh');
           $("input[name=key4][id=key4-"+ls_pto["dateFormat"]+"]").prop('checked',true);
           $("input[name=key4]").checkboxradio('refresh');
+          $("input[name=key5][id=key5-"+ls_pto["reduceAnimations"]+"]").prop('checked',true);
+          $("input[name=key5]").checkboxradio('refresh');
           
           //Strings
           $("input[name=key13]").val(ls_pto["customLoc"]);
