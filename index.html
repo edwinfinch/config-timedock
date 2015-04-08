@@ -22,23 +22,15 @@
         <h3>Look and Feel</h3>
 
 <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
-    <legend>Theme</legend>
-        <input name="key0" id="key0-0" data-type="int" value="0" checked="checked" type="radio">
-        <label for="key0-0">Dark</label>
-        <input name="key0" id="key0-1" data-type="int" value="1" type="radio">
-        <label for="key0-1">Light</label>
+    <legend>Animations</legend>
+        <input name="key2" id="key2-1" data-type="int" value="1" checked="checked" type="radio">
+        <label for="key2-1">On</label>
+        <input name="key2" id="key2-0" data-type="int" value="0" type="radio">
+        <label for="key2-0">Off</label>
 </fieldset>
 
 <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
-    <legend>Animations</legend>
-        <input name="key2" id="key2-0" data-type="int" value="0" checked="checked" type="radio">
-        <label for="key2-0">On</label>
-        <input name="key2" id="key2-1" data-type="int" value="1" type="radio">
-        <label for="key2-1">Off</label>
-</fieldset>
-
-<fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
-    <legend>Animations</legend>
+    <legend>Reduced Animations</legend>
     	<i>This will only apply if animations are on. If reduced, you'll see less animations on boot and charging.</i>
         <input name="key5" id="key5-0" data-type="int" value="0" checked="checked" type="radio">
         <label for="key5-0">No</label>
@@ -99,7 +91,6 @@ If you don't want a custom location leave the field blank.
     <script>
       function saveOptions() {
         var options = {
-          'theme':     Number( $("input[name=key0]:checked").val() ),
           'weatherFormat':     Number( $("input[name=key1]:checked").val() ),
           'animations':     Number( $("input[name=key2]:checked").val() ),
           'autoOpen':     Number( $("input[name=key3]:checked").val() ),
@@ -116,8 +107,6 @@ If you don't want a custom location leave the field blank.
         if (window.localStorage.timedockops) {
           ls_pto = JSON.parse(window.localStorage.timedockops);
           // the Pebble webview dies on the next line...
-          $("input[name=key0][id=key0-"+ls_pto["theme"]+"]").prop('checked',true);
-          $("input[name=key0]").checkboxradio('refresh');
           $("input[name=key1][id=key1-"+ls_pto["weatherFormat"]+"]").prop('checked',true);
           $("input[name=key1]").checkboxradio('refresh');
           $("input[name=key2][id=key2-"+ls_pto["animations"]+"]").prop('checked',true);
